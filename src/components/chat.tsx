@@ -44,7 +44,7 @@ export default function Chat() {
         // if (!exists) return;
         setShowroom(!showroom);
 
-        const ws = new WebSocket("ws://localhost:8080");
+        const ws = new WebSocket("https://real-time-chat-application-backend-34h9.onrender.com");
         socketRef.current = ws;
 
         ws.onopen = () => {
