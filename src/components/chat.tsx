@@ -118,7 +118,7 @@ export default function Chat() {
         }
         return roomcode;
     }
-    
+
         useEffect( () =>{
                 if (showroom) { alert("Wait for 2 Minutes for WS Server to Start — kudos to Render ")}
         }, [showroom]);
@@ -164,7 +164,6 @@ export default function Chat() {
                 
                 <div className=" flex flex-col text-white text-3xl gap-2 w-full font-['nocturn'] tracking-tight ">
                     <div>
-                        alert("Wait for 2 Minutes for Ws Server to Start kudos to Render");
                         <span className='font-["mulish"]'>Room :</span>  <span className="font-['doto'] pt-2">  {roomId}</span>
                     </div>
                     <p className='text-xl text-[#c7c6c6]' >Clients : {count}</p>
