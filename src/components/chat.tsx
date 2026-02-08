@@ -175,7 +175,7 @@ export default function Chat() {
                                 <div key={Message.id} className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
 
                                     <div className={` flex flex-col px-3 py-2 rounded-lg text-[#858484] font-['doto']  `}>
-                                        <p className='text-xl'>{Message.name}</p>
+                                        <p className={` flex ${isMine ? "justify-end" : "justify-start"} text-xl `}>{Message.name}</p>
                                         <div className={` flex max-w-full px-3 justify-center py-2 rounded-lg font-['nocturn'] text-white ${isMine ? "bg-blue-500" : "bg-gray-700"}`}>
                                             <p>{Message.text}</p>
                                         </div>
