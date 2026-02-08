@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 
 
@@ -70,7 +70,7 @@ export default function Chat() {
             if (msg.type === "history") {
 
                 setMessages(msg.payload.messages)
-                
+
             }
 
             if (msg.type === "room-info") {
@@ -118,6 +118,10 @@ export default function Chat() {
         }
         return roomcode;
     }
+    
+        useEffect( () =>{
+                if (showroom) { alert("Wait for 2 Minutes for WS Server to Start — kudos to Render ")}
+        }, [showroom]);
 
     return (
         <div className=" min-h-screen flex flex-col items-center justify-center gap-4 ">
@@ -135,7 +139,7 @@ export default function Chat() {
                         </div>
 
                         <div className="flex justify-between gap-2 h-xs">
-                            <input className="w-full p-2 border border-[#2F2F2F] rounded-sm placeholder-[#8d8c8c] font-['nocturn']" placeholder="Enter Room Code" value={name} onChange={(e) => { setName(e.target.value) }} ></input>
+                            <input className="w-full p-2 border border-[#2F2F2F] rounded-sm placeholder-[#8d8c8c] font-['nocturn']" placeholder="Enter Name " value={name} onChange={(e) => { setName(e.target.value) }} ></input>
                             <button className="px-3 py-1 bg-amber-100 rounded-sm items-center w-3xs cursor-pointer font-['nocturn'] text-3xs font-semibold text-black" onClick={() => { alert("Name is Saved"); }} >Set Name</button>
                         </div>
 
@@ -155,14 +159,16 @@ export default function Chat() {
             )}
 
 
+
             {showroom && (
+                
                 <div className=" flex flex-col text-white text-3xl gap-2 w-full font-['nocturn'] tracking-tight ">
                     <div>
+                        alert("Wait for 2 Minutes for Ws Server to Start kudos to Render");
                         <span className='font-["mulish"]'>Room :</span>  <span className="font-['doto'] pt-2">  {roomId}</span>
                     </div>
                     <p className='text-xl text-[#c7c6c6]' >Clients : {count}</p>
                     <div className='flex flex-col justify-between text-2xl gap-2 border border-[#2F2F2F] rounded-xl p-4'>
-
                         {messages.map((Message) => {
                             const isMine = Message.senderId === myId;
                             return (
