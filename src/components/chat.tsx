@@ -127,7 +127,7 @@ export default function Chat() {
         <div className=" min-h-screen flex flex-col items-center justify-center gap-4 ">
             {!showroom && (
                 <div>
-                    <div className="flex flex-col border border-[#2F2F2F] p-6 w-full rounded-xl gap-4">
+                    <div className="flex flex-col border border-[#2F2F2F] p-6 w-full rounded-xl gap-4 mb-2">
                         <div className="flex flex-col"> <div className="text-amber-50 text-3xl font-semibold font-['nocturn'] tracking-wider">Real Time Chat</div>
                             <div className="text-[#b6b5b5] font-['doto'] text-xl">Temporary Room expires when all users exit</div>
                         </div>
@@ -146,7 +146,7 @@ export default function Chat() {
                     </div>
 
                     {roomsId.length > 0 && (
-                        <div className='w-full flex-col flex justify-center gap-3'>
+                        <div className='w-full flex-col flex justify-center gap-3 '>
                             {roomsId.map((Room, index) => (
                                 <div key={Room.id} className="flex flex-col border border-[#2F2F2F] p-2 w-full rounded-xl gap-4 justify-center items-center">
                                     <div className="  text-amber-50 text-2xl font-['doto'] tracking-tighter">Room {index + 1} : {Room.id} </div>
